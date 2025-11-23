@@ -1,62 +1,84 @@
-📘 Currency Converter
+# Currency Converter (15×15)
 
-A simple and efficient Python-based currency converter that can convert any of 15 currencies to any other using INR as an internal base.The program is fully offline, beginner-friendly, and demonstrates clean menu-driven programming.
+A simple and efficient Python-based offline currency converter that converts between 15 currencies using INR as an internal base.
 
-🧾 Features
+## Features
 
-✔ Converts any currency to any other (15 × 15)
-✔ Uses INR as the internal base for accurate conversion
-✔ Full offline functionality
-✔ Simple menu-driven interface
-✔ Beginner-friendly Python code
-✔ Includes basic input validation
-✔ Fast and lightweight
+- Converts any currency to any other (15 × 15)
+- Uses INR as the intermediate base for conversions
+- Fully offline (no external API required)
+- Simple, menu-driven command-line interface
+- Beginner-friendly Python code with basic input validation
+- Fast and lightweight
 
-🧾 Features
+## Supported currencies (15)
 
-✔ Converts any currency to any other (15 × 15)
-✔ Uses INR as the internal base for accurate conversion
-✔ Full offline functionality
-✔ Simple menu-driven interface
-✔ Beginner-friendly Python code
-✔ Includes basic input validation
-✔ Fast and lightweight
+USD, EUR, GBP, AUD, CAD, JPY, CNY, RUB, CHF, NZD, SGD, ZAR, AED, SAR, KRW
 
+## How it works
 
-⚙️ How It Works
+1. Choose the currency to convert FROM (1–15).  
+2. Choose the currency to convert TO (1–15).  
+3. Enter the amount.  
+4. The script converts the amount to INR using the FROM currency rate, then converts INR to the TO currency using the TO rate and displays the result.
 
-1.User selects FROM currency (1–15)
+## Project structure
 
-2.User selects TO currency (1–15)
+Currency-Converter-15x15/  
+- currency_converter.py  
+- README.md  
+- docs/  
+  - usecase.png  
+  - workflow.png  
+  - sequence.png  
+  - class.png  
+  - er.png
 
-3.User enters an amount
+## Usage
 
-4.Final converted value is displayed.
+Run with Python 3:
 
+```bash
+python3 currency_converter.py
+```
 
-📂 Project Structure
+The script will list available currencies and prompt for:
+- Currency to convert FROM (enter the number 1–15)  
+- Currency to convert TO (enter the number 1–15)  
+- Amount to convert
 
+Example interaction:
 
-📁 Currency-Converter-15x15
-│── currency_converter.py
-│── README.md
-│── docs/
-│     ├── usecase.png
-│     ├── workflow.png
-│     ├── sequence.png
-│     ├── class.png
-│     ├── er.png
+```
+=== Currency Converter (15x15) ===
 
+1) USD
+2) EUR
+3) GBP
+4) AUD
+5) CAD
+6) JPY
+7) CNY
+8) RUB
+9) CHF
+10) NZD
+11) SGD
+12) ZAR
+13) AED
+14) SAR
+15) KRW
 
+Currency to convert FROM (1-15): 1
+Currency to convert TO (1-15): 2
+Enter the amount you'd like to convert: 100
 
+100 USD is approximately 91.15 EUR
+```
 
+## Main script (currency_converter.py)
 
-
-
-🧠 Code (Main Script)
-
-# Just putting the rates here. Might update later if forex changes.
-# These values are roughly in INR... at least last time I checked.
+```python
+# Fixed exchange rates (values are approximate and expressed in INR)
 currency_rates = {
     "USD": 84.5,
     "EUR": 92.3,
@@ -75,99 +97,66 @@ currency_rates = {
     "KRW": 0.065
 }
 
-print("\n=== Currency Converter (15x15) ===\n")
+def main():
+    print("\n=== Currency Converter (15x15) ===\n")
 
-curr_list = list(currency_rates.keys())
+    curr_list = list(currency_rates.keys())
 
-print("Available Currencies:\n")
-for index, curr in enumerate(curr_list, 1):
-    print(f"{index}) {curr}")
+    print("Available Currencies:\n")
+    for index, curr in enumerate(curr_list, 1):
+        print(f"{index}) {curr}")
 
-try:
-    from_idx = int(input("\nCurrency to convert FROM (1-15): "))
-    to_idx   = int(input("Currency to convert TO (1-15): "))
-    amt = float(input("Enter the amount you'd like to convert: "))
-except:
-    print("Something went wrong with your input.")
-    from_idx, to_idx = -1, -1
-    amt = 0
+    try:
+        from_idx = int(input("\nCurrency to convert FROM (1-15): "))
+        to_idx   = int(input("Currency to convert TO (1-15): "))
+        amt = float(input("Enter the amount you'd like to convert: "))
+    except Exception:
+        print("Something went wrong with your input.")
+        return
 
-if 1 <= from_idx <= 15 and 1 <= to_idx <= 15:
-    from_curr = curr_list[from_idx - 1]
-    to_curr = curr_list[to_idx - 1]
+    if 1 <= from_idx <= len(curr_list) and 1 <= to_idx <= len(curr_list):
+        from_curr = curr_list[from_idx - 1]
+        to_curr = curr_list[to_idx - 1]
 
-    inr_value = amt * currency_rates[from_curr]
-    final_amount = inr_value / currency_rates[to_curr]
+        inr_value = amt * currency_rates[from_curr]
+        final_amount = inr_value / currency_rates[to_curr]
 
-    print(f"\n{amt} {from_curr} is approximately {final_amount:.2f} {to_curr}\n")
+        print(f"\n{amt} {from_curr} is approximately {final_amount:.2f} {to_curr}\n")
+    else:
+        print("\nInvalid choice! Please enter numbers between 1 and 15.")
 
-else:
-    print("\nInvalid choice! (I'll probably add better error messages later.)")
+if __name__ == "__main__":
+    main()
+```
 
+## Sample output
 
-   
-
-    
-
-
-📝 Sample Output
-
-    === Currency Converter (15x15) ===
-
-1) USD
-2) EUR
+```
+=== Currency Converter (15x15) ===
 ...
-15) KRW
-
 Currency to convert FROM (1-15): 1
-
 Currency to convert TO (1-15): 2
-
-
-Enter amount: 100
-
+Enter the amount you'd like to convert: 100
 
 100 USD is approximately 91.15 EUR
+```
 
+## Testing
 
+- Verified conversion correctness using INR as the intermediate base.  
+- Tested valid currency combinations.  
+- Tested invalid input handling (non-numeric values, out-of-range selections).
 
+## Future enhancements
 
-🧪 Testing
+- GUI version (Tkinter)
+- Live exchange rates using a public API
+- Support for many more currencies (50+)
+- Conversion history and export (CSV)
+- Better input validation and localized formatting
 
-Tested all valid currency combinations
+## Author
 
-Tested invalid input (letters, out-of-range values)
-
-Verified accuracy using INR as a base
-
-
-
-🚀 Future Enhancements
-
-GUI version (Tkinter)
-
-Live exchange rates using API
-
-More currencies (50+)
-
-Conversion history
-
-Export results as CSV
-
-
-
-
-
-
-👤 Author
-
-Annant Pundir
-Reg No: 25BCY10113
+Annant Pundir  
+Reg No: 25BCY10113  
 VIT Bhopal
-
-
-
-
-
-
-
