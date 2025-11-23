@@ -1,60 +1,57 @@
-
+ 
 Currency Converter Project
 Author: Annant Pundir
-
-Reg No: 25BCY10113
-
-Campus: VIT Bhopal
+ 
+ Reg No: 25BCY10113
+ 
+ Campus: VIT Bhopal
 This project converts 15 currencies to any of the 15 currencies.
-
-
+ 
+ 
 🧾 Features
 ✔ Converts any currency to any other (15 × 15)
- ✔ Uses INR as the internal base for accurate conversion
- ✔ Full offline functionality
- ✔ Simple menu-driven interface
- ✔ Beginner-friendly Python code
- ✔ Includes basic input validation
- ✔ Fast and lightweight
-
-
-
-
+  ✔ Uses INR as the internal base for accurate conversion
+  ✔ Full offline functionality
+  ✔ Simple menu-driven interface
+  ✔ Beginner-friendly Python code
+  ✔ Includes basic input validation
+  ✔ Fast and lightweight
+ 
+ 
+ 
+ 
 💱 Supported Currencies
-·	USD (US Dollar)
-·	EUR (Euro)
-·	GBP (British Pound)
-·	AUD (Australian Dollar)
-·	CAD (Canadian Dollar)
-·	JPY (Japanese Yen)
-·	CNY (Chinese Yuan)
-·	RUB (Russian Ruble)
-·	CHF (Swiss Franc)
-·	NZD (New Zealand Dollar)
-·	SGD (Singapore Dollar)
-·	ZAR (South African Rand)
-·	AED (UAE Dirham)
-·	SAR (Saudi Riyal)
-·	KRW (South Korean Won)
-
-
-
-
+USD (US Dollar)
+EUR (Euro)
+GBP (British Pound)
+AUD (Australian Dollar)
+CAD (Canadian Dollar)
+JPY (Japanese Yen)
+CNY (Chinese Yuan)
+RUB (Russian Ruble)
+CHF (Swiss Franc)
+NZD (New Zealand Dollar)
+SGD (Singapore Dollar)
+ZAR (South African Rand)
+AED (UAE Dirham)
+SAR (Saudi Riyal)
+KRW (South Korean Won)
+ 
+ 
+ 
+ 
 ⚙️ How It Works
-1.	User selects FROM currency (1–15)
-2.	User selects TO currency (1–15)
-3.	User enters an amount
-4.	Program converts amount using this formula:
+User selects FROM currency (1–15)
+User selects TO currency (1–15)
+User enters an amount
+Program converts amount using this formula:
 Amount in Source Currency → INR → Target Currency
-   5.    Final converted value is displayed.
-
-
-
-
- Code (Main Script)
-python Copy code
-
-
+   5.	Final converted value is displayed.
+ 
+ 
+ 
+ 
+  Code (Main Script)
 
 # Just putting the rates here. Might update later if forex changes.
 # These values are roughly in INR... at least last time I checked.
@@ -118,11 +115,7 @@ else:
 
 
 
-Sample Output
-
-
-=== Currency Converter (15x15) ===
-
+Output
 1) USD
 2) EUR
 ...
@@ -138,10 +131,12 @@ Enter amount: 100
 
 
 
-
-
+  
+ 
+ 
 Testing
-·	Tested all valid currency combinations
-·	Tested invalid input (letters, out-of-range values)
-·	Verified accuracy using INR as a base
+Tested all valid currency combinations
+Tested invalid input (letters, out-of-range values)
+Verified accuracy using INR as a base
+ 
 
